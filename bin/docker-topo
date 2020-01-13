@@ -599,6 +599,8 @@ class Veth(object):
                     i.address = i.address[0] + "0" + i.address[2:]
                     i.commit()
                 i.up()
+            if device.name == "evpn_host1" and interface == "eth1":
+                ns.create(ifname="bond1", kind="bond", mode=4).commit()
  
 
 class Link(object):
